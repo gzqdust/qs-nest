@@ -50,4 +50,13 @@
     </view>
   </view>
 
+  <view class="form-group_label">🎯 Flags</view>
+  <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell bg-white">
+      <view class="slide">
+        <view class="title">1. 当上小主管，一个有名的公司！2. 涨薪一起出去玩玩玩。来一次长假游！</view>
+      </view>
+    </view>
+  </view>
+
 </view>

@@ -3,8 +3,7 @@
 <view data-weui-theme="{{theme}}">
   <mp-loading extClass="mp-loading" show="{{showLoading}}"></mp-loading>
   <cm-nav>
-    <view class="newDeploy"
-    slot="left" bindtap="toDeploy" bindlongpress="toDeployText">➕
+    <view class="newDeploy" slot="left" bindtap="toDeploy" bindlongpress="toDeployText">➕
     </view>
   </cm-nav>
 
@@ -30,7 +29,7 @@
           <image mode="widthFix" class="publisher-avatar border-radius-base" src="{{deployUsers[item._openid] ? deployUsers[item._openid].avatar:'/static/images/icon/default_avatar.png'}}"></image>
           <text class="ml-2 font-sm">{{deployUsers[item._openid].nickname}}</text>
         </view>
-        <view class="font-base color-grey">{{item.time}}</view>
+        <view class="font-sm color-grey"> {{item.time}} 📅</view>
       </view>
       <!-- 正文简要 -->
       <view class="d-flex align-items-center mt-2">
@@ -40,15 +39,17 @@
       </view>
       <!-- 积分信息 -->
       <!-- <view class="d-flex align-items-center mt-2">
-        <text class="content mr-2 font-base" wx:if="{{item.files}}">{{tools.setString(item.credit, 120)}}</text>
-        <image mode="aspectFit" class="content-thumbnail" wx:if="{{item.files && item.files.length >= 1}}" src="{{item.credit}}"></image>
+        <text class="content mr-2 font-base" wx:if="{{item.credit}} && {{item.credit}} != 0">积分：💰{{item.credit}}</text>
       </view> -->
-      
+
       <!-- 其他信息 -->
-      <view class="d-flex align-items-center justify-content-between" wx:if="{{item.location && item.location.name}}">
-        <view class="publisher-location d-flex align-items-center">
+      <view class="d-flex align-items-center justify-content-between" wx:if="{{item.location && item.location.name}} ｜｜ {{item.credit && item.credit != 0}}">
+        <view class="d-flex align-items-cente" >
+          <text class="mr-1 font-sm" wx:if="{{item.credit && item.credit != 0}}">💰 {{item.credit}}积分</text>
+        </view>
+        <view class="publisher-location d-flex align-items-center" wx:if="{{item.location && item.location.name}}">
           <mp-icon type="field" icon="location" size="15" color="{{colorPrimary}}"></mp-icon>
-          <text class="font-base ml-1">{{item.location}}</text>
+          <text class="font-sm ml-1">{{item.location.name}}</text>
         </view>
       </view>
     </view>
