@@ -92,7 +92,7 @@ App({
     userInfo: {},
     userInfoNeedReload: false,
     theme: 'light',
-    model: "android",
+    model: "iphone",
     launchReady: false,
     token: "",
     token_exp: "",

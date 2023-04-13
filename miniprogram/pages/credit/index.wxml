@@ -1,0 +1,53 @@
+<view style="width:100%; background: none;" data-weui-theme="{{theme}}">
+
+  <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" style="background: white; height: 200px; width: 100%;">
+    <swiper-item>
+      <image src="Images/HomeCover01.jpg" mode='widthFix' class="swiper-image" />
+    </swiper-item>
+    <swiper-item>
+      <image src="Images/HomeCover02.jpg" mode='widthFix' class="swiper-image" />
+    </swiper-item>
+    <swiper-item>
+      <image src="Images/HomeCover03.jpg" mode='widthFix' class="swiper-image" />
+    </swiper-item>
+  </swiper>
+
+  <view class="form-group_label ">👉 积分榜</view>
+  <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell  bg-white">
+      <view class="slide">
+        <view class="title ">💰 {{userA}}的积分：{{creditA}}</view>
+      </view>
+    </view>
+    <view class="form-cell  bg-white">
+      <view class="slide">
+        <view class="title">💰 {{userB}}的积分：{{creditB}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-group_label">🤙 666～</view>
+  <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell bg-white">
+      <view class="slide">
+        <view class="title">🥰 欢迎回家！小小付和小小强！</view>
+      </view>
+    </view>
+    <view class="form-cell bg-white">
+      <view class="slide">
+        <view class="title">💕 没有什么过不去的，永远是彼此最坚强的后盾～</view>
+      </view>
+    </view>
+    <view class="form-cell bg-white">
+      <view class="slide">
+        <view class="title">😘 就算被人拒绝，也是一种经历，至少我们还在一起面对！</view>
+      </view>
+    </view>
+    <view class="form-cell bg-white">
+      <view class="slide">
+        <view class="title">👨‍❤️‍💋‍👨 如果有的时候有焦虑，有难受，有情绪，也一定相信我能理解你，不会离你而去。</view>
+      </view>
+    </view>
+  </view>
+
+</view>

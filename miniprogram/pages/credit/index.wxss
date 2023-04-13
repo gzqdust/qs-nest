@@ -1,0 +1,42 @@
+.form-cell {
+  padding: 0;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
+.title {
+  font-size: 12px;
+}
+
+.swiper-image{
+  display: block;
+  height: 100%; 
+  width: 100%;
+  position: relative;
+  background-color: darkgray;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.form-group {
+  width: calc(100% - 40px);
+  margin: 10px 20px;
+  border-radius: 10px;
+  background: white;
+}
+
+.form-group_label {
+  align-self: flex-start;
+  margin-top: 20px;
+  margin-left: 20px;
+  color: #8D8D8D;
+  font-size: 15px;
+}
+
+.form-group_label:not(:first-child) {
+  margin-top: 20px;
+}

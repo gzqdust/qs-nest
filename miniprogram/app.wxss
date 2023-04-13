@@ -200,6 +200,11 @@ mp-icon {
 	margin-left: 30rpx;
 }
 
+.ml-4 {
+  font-size: medium;
+	margin-left: 280rpx;
+}
+
 .mr-3 {
 	margin-right: 30rpx;
 }

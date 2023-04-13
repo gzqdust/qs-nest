@@ -2,8 +2,6 @@
 <view data-weui-theme="{{theme}}">
   <mp-loading extClass="mp-loading" show="{{showLoading}}"></mp-loading>
 
-  <image class="page-background" style="{{theme == 'dark' ? 'opacity: 0.2' : 'opacity: 0.8'}}" src="/static/images/background/personal/bg1.png"></image>
-
   <!-- 主要内容 -->
   <view wx:if="{{!showLoading}}" class="main">
     <!-- 头部信息 -->

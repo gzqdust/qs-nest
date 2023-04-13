@@ -3,7 +3,9 @@
 <view data-weui-theme="{{theme}}">
   <mp-loading extClass="mp-loading" show="{{showLoading}}"></mp-loading>
   <cm-nav>
-    <view slot="left" bindtap="toDeploy" bindlongpress="toDeployText">小窝({{articleTotal}})</view>
+    <view class="newDeploy"
+    slot="left" bindtap="toDeploy" bindlongpress="toDeployText">➕
+    </view>
   </cm-nav>
 
   <!-- 主要内容 -->
@@ -36,11 +38,17 @@
         <text class="content-only-text font-base mb-2" wx:else>{{tools.setString(item.content, 150)}}</text>
         <image mode="aspectFit" class="content-thumbnail" wx:if="{{item.files && item.files.length >= 1}}" src="{{item.files[0]}}"></image>
       </view>
+      <!-- 积分信息 -->
+      <!-- <view class="d-flex align-items-center mt-2">
+        <text class="content mr-2 font-base" wx:if="{{item.files}}">{{tools.setString(item.credit, 120)}}</text>
+        <image mode="aspectFit" class="content-thumbnail" wx:if="{{item.files && item.files.length >= 1}}" src="{{item.credit}}"></image>
+      </view> -->
+      
       <!-- 其他信息 -->
       <view class="d-flex align-items-center justify-content-between" wx:if="{{item.location && item.location.name}}">
         <view class="publisher-location d-flex align-items-center">
           <mp-icon type="field" icon="location" size="15" color="{{colorPrimary}}"></mp-icon>
-          <text class="font-base ml-1">{{item.location.name}}</text>
+          <text class="font-base ml-1">{{item.location}}</text>
         </view>
       </view>
     </view>
@@ -57,3 +65,13 @@
     </view>
   </view>
 </view>
+
+<!-- 
+<movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;">
+  <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
+    <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toDeploy" 
+    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+      <image style = "margin-top: 10px; height: 100%; width: 100%;" mode="widthFix" src="images/Plus.png"/>动态
+    </button>
+  </movable-view>
+</movable-area> -->

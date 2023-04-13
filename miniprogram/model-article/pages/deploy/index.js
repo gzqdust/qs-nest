@@ -6,6 +6,7 @@ const db = wx.cloud.database();
 // 获取集合的引用
 const dbArticle = db.collection('article');
 const users = db.collection('users');
+const creditDb = db.collection('credit');
 // 数据库操作符
 const _ = db.command;
 
@@ -22,7 +23,9 @@ Page({
     contentLen: 0,
     location: "",
     errorTip: "",
-    onlyText: false
+    onlyText: false,
+    credit: 0,
+    toOpenId: '',
   },
 
   /**
@@ -64,6 +67,16 @@ Page({
     this.setData({
       content: cnt,
       contentLen: len
+    })
+  },
+
+   /**
+   * 输入积分
+   */
+  onCreditInput(event) {
+    let cre = event.detail.value;
+    this.setData({
+      credit: cre
     })
   },
 
@@ -188,9 +201,6 @@ Page({
       if (this.data.contentLen <= 0) {
         setinfo['errorTip'] = '请输入正文';
         _this.setData(setinfo);
-      } else if (this.data.files.length <= 0 && !this.data.onlyText) {
-        setinfo['errorTip'] = '请选择图片';
-        _this.setData(setinfo);
       } else {
         setinfo['errorTip'] = '';
         _this.setData(setinfo);
@@ -218,6 +228,7 @@ Page({
     }
     from['content'] = this.data.content;
     from['location'] = this.data.location;
+    from['credit'] = this.data.credit;
     from['create_time'] = db.serverDate();
     dbArticle.add({
       data: from
@@ -226,8 +237,11 @@ Page({
       users.where({
         auth_notice: true,
         _openid: _.not(_.eq(_this.data.userInfo._openid))
-      }).get().then(res=>{
+      }).get().then(
+        res=>{
         if (res.data.length >= 1) {
+          from['toOpenId'] = res.data[0]._openid;
+          console.log(from);
           let noticeList = res.data;
           _this.api('notice', {
             app_id: base.nest_app_id,
@@ -253,6 +267,15 @@ Page({
             url: '/model-article/pages/detail/index?id='+result._id
           })
         }, 1500);
+      })
+      console.log(from);
+      // 调用积分增加逻辑
+      creditDb.where({
+        _openid: from['toOpenId']
+      }).update({
+        data: {
+          credit: db.command.inc(from['credit'])
+        }
       })
     }).catch(err=>{
       wx.hideLoading();

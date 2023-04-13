@@ -57,3 +57,7 @@
   box-shadow: 0 0 10px #FEB5B6;
   border: solid #ffffff 2px;
 }
+
+.newDeploy{
+  font-size: large;
+}

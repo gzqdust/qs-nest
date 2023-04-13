@@ -6,7 +6,7 @@
       <mp-cells title="基本设置">
         <mp-cell>
           <view slot="title">相册名称</view>
-          <view class="ml-3">
+          <view class="ml-4">
             <input type="text" placeholder="取个有意义的名字" value="{{formData.alias}}" bindinput="changeAlias" />
           </view>
         </mp-cell>

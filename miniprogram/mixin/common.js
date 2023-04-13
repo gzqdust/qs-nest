@@ -3,9 +3,9 @@ const httpApi = require('../service/http.api');
 module.exports = {
   data: {
     error: '',
-    versionNum: '',
-    version: '', //小程序版本：develop=开发版；trial=体验版；release=线上版本
-    isIPhone: false, // 是否是苹果设备
+    versionNum: '1.0.3',
+    version: 'release', //小程序版本：develop=开发版；trial=体验版；release=线上版本
+    isIPhone: true, // 是否是苹果设备
     isAndroid: false, // 是否是安卓设备
     theme: 'light', //主题：light=白色；dark=黑色
     options: {},  //页面启动参数
@@ -157,7 +157,7 @@ module.exports = {
       })
       let pages = getCurrentPages();
       let currPage = pages[pages.length-1].route;
-      let tabPages = ["pages/home/index","pages/personal/index"];
+      let tabPages = ["pages/credit/index", "pages/home/index","pages/personal/index"];
       if (tabPages.indexOf(currPage) >= 0) {
         wx.setTabBarStyle({
           backgroundColor: '#1e1e1e',
